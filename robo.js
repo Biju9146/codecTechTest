@@ -71,7 +71,7 @@ const moveForward = (roboFacing, currentPosition) => {
 
 const walkRobo = () => {
   const gridSize = prompt("Enter the size of the plateau grid (e.g. 5x5): ");
-  const [x, y] = gridSize.split("x").map(Number);
+  const [x, y] = gridSize.split(/[\xX]+/).map(Number);
   grid = Array.from({ length: y }, () => Array.from({ length: x }, () => 0));
   document.getElementById("grid-size").innerText = gridSize;
   const commands = prompt("Enter the commands to navigate the robot: ");
