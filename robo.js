@@ -61,6 +61,10 @@ const moveForward = (roboFacing, currentPosition) => {
   // Check if the new position is within the grid
   if (x > 0 && x <= grid[0].length && y > 0 && y <= grid.length) {
     currentPosition = [x, y, roboFacing];
+  } else {
+    document.getElementById("fianl_position").innerText = "Robo gose out of grid!";
+    document.getElementById("fianl_position").style.color = "red";
+    return alert("Robo goes out of grid!");
   }
   return currentPosition;
 };
@@ -76,6 +80,8 @@ const walkRobo = () => {
   document.getElementById("start_position").innerText = currentPosition;
   const result = navigateRobot(commands, currentPosition);
   document.getElementById("fianl_position").innerText = `${result[0]}, ${result[1]}, ${result[2]}`;
+  document.getElementById("fianl_position").style.color = "green";
+
 };
 
 walkRobo();
